@@ -1,41 +1,33 @@
-//Dynamically using javscript for making of input element DOM
-
-/*let inputElement = document.createElement("input");
-inputElement.type = "checkbox";
-inputElement.id = "myCheckbox";
-
-document.body.appendChild(inputElement);
-
-let labelElement = document.createElement("label");
-labelElement.setAttribute("for", "checkbox" );
-labelElement.textContent = "Graduated";
-document.body.appendChild(labelElement);*/
-
-
-
 let todoItemsContainer = document.getElementById("todoItemsContainer");
 
 let todoList = [
     {
-        text: "Learn HTML"
+        text: "Learn HTML",
+        uniqueNo: 1
     },
     {
-        text: "Learn CSS"
+        text: "Learn CSS",
+        uniqueNo: 2
     },
     {
-        text: "Learn Javascript"
+        text: "Learn Javascript",
+        uniqueNo: 3
        
     },
     {
-        text: "Learn react"
-       
+        text: "Learn react",
+        uniqueNo: 4
     },
     {
-        text: "Learn python"
+        text: "Learn python",
+        uniqueNo: 5
     }
     ]
 
 function createAndAppendTodo(todo){
+let checkboxId = "checkbox" + todo.UniqueNo;
+
+    
     let todoElement = document.createElement("li");
 todoElement.classList.add("todo-item-container", "d-flex", "flex-row");
 
@@ -43,7 +35,7 @@ todoItemsContainer.appendChild(todoElement);
 
 let inputElement = document.createElement("input");
 inputElement.type = "checkbox";
-inputElement.id = "ChechboxInput";
+inputElement.id = checkboxId;
 inputElement.classList.add("checkbox-input");
 
 todoElement.appendChild(inputElement);
@@ -54,7 +46,7 @@ labelContainer.classList.add("label-container","d-flex", "flex-row");
 todoElement.appendChild(labelContainer);
 
 let LabelElement = document.createElement("label");
-LabelElement.setAttribute("for", "checkboxInput");
+LabelElement.setAttribute("for", checkboxId);
 LabelElement.classList.add("checkbox-label");
 LabelElement.textContent = todo.text;
 
